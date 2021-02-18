@@ -106,7 +106,7 @@ public class Auction
         for(Lot lot : lots) {
             String infor = lot.toString();
             if (lot.getHighestBid() != null) {
-                infor += " (vendido por: " + lot.getHighestBid().getBidder().getName() +  ")";
+                infor += " (pujado por: " + lot.getHighestBid().getBidder().getName() +  ")";
             } else {
                 infor += " (Sin vender)";
             }
