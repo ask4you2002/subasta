@@ -113,4 +113,18 @@ public class Auction
             System.out.println(infor);
         }
     }
+    
+    public ArrayList<Lot> getUnsold(){
+        ArrayList<Lot> uns = new ArrayList<Lot>();
+        int coleccion = lots.size();
+        int indice =  0;
+        while (indice < coleccion) {
+            Lot lote = lots.get(indice);
+            if (lote.getHighestBid() == null) {
+                uns.add(lote);
+            }
+            indice ++;
+        }
+        return uns;
+    }
 }
