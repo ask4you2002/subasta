@@ -80,27 +80,41 @@ public class Auction
     **/
     
     public Lot getLot(int lotNumber) {
+            Lot aDevolver = null;
+            boolean found = true;
             if ((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
-                String lotesBusq = lots.get(lotNumber - 1).getDescription();
-                
-                if (lots.toString().contains(lotesBusq)) {
-                    Lot lote = lots.get(lotNumber - 1);
-                    return lote;
+                int index = 0;
+                int max = lots.size();
+                while (index < max && found == true) {
+                    
+                    if (lotNumber == lots.get(index).getNumber()) {
+                        aDevolver = lots.get(index);
+                        lots.remove(aDevolver);
+                        found = false;
+                    }
+                    index ++;
                 }
             }
-            return null;
+            return aDevolver;
     }
     
-    public Lot removeLot(int number) {
-        if (number >= 1 && number < nextLotNumber) {
-            int lotesBusq = lots.get(number - 1).getNumber();
-            if (number == lotesBusq){
-                Lot lote = lots.get(lotesBusq - 1);
-                lots.remove(number - 1);
-                return lote;
+    public Lot removeLot(int lotNumber) {
+        Lot aDevolver = null;
+        boolean found = true;
+        if ((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
+            int index = 0;
+            int max = lots.size();
+            while (index < max && found == true) {
+                
+                if (lotNumber == lots.get(index).getNumber()) {
+                    aDevolver = lots.get(index);
+                    lots.remove(aDevolver);
+                    found = false;
+                }
+                index ++;
             }
         }
-        return null;
+        return aDevolver;
     } 
     
     public void close() {
