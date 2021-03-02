@@ -43,7 +43,7 @@ public class Auction
             System.out.println(lot.toString());
         }
     }
-    
+
     /**
      * Make a bid for a lot.
      * A message is printed indicating whether the bid is
@@ -61,14 +61,14 @@ public class Auction
 
             if(successful) {
                 System.out.println("The bid for lot number " +
-                                   lotNumber + " was successful.");
+                    lotNumber + " was successful.");
             }
             else {
                 // Report which bid is higher.
 
                 System.out.println("Lot number: " + lotNumber +
-                                   " already has a bid of: " +
-                                   selectedLot.getHighestBid().getValue());
+                    " already has a bid of: " +
+                    selectedLot.getHighestBid().getValue());
             }
         }
     }
@@ -77,27 +77,26 @@ public class Auction
      * Return the lot with the given number. Return null
      * if a lot with this number does not exist.
      * @param lotNumber The number of the lot to retur
-    **/
-    
+     **/
+
     public Lot getLot(int lotNumber) {
-            Lot aDevolver = null;
-            boolean found = true;
-            if ((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
-                int index = 0;
-                int max = lots.size();
-                while (index < max && found == true) {
-                    
-                    if (lotNumber == lots.get(index).getNumber()) {
-                        aDevolver = lots.get(index);
-                        lots.remove(aDevolver);
-                        found = false;
-                    }
-                    index ++;
+        Lot aDevolver = null;
+        boolean found = true;
+        if ((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
+            int index = 0;
+            int max = lots.size();
+            while (index < max && found == true) {
+
+                if (lotNumber == lots.get(index).getNumber()) {
+                    aDevolver = lots.get(index);
+                    found = false;
                 }
+                index ++;
             }
-            return aDevolver;
+        }
+        return aDevolver;
     }
-    
+
     public Lot removeLot(int lotNumber) {
         Lot aDevolver = null;
         boolean found = true;
@@ -105,7 +104,7 @@ public class Auction
             int index = 0;
             int max = lots.size();
             while (index < max && found == true) {
-                
+
                 if (lotNumber == lots.get(index).getNumber()) {
                     aDevolver = lots.get(index);
                     lots.remove(aDevolver);
@@ -116,7 +115,7 @@ public class Auction
         }
         return aDevolver;
     } 
-    
+
     public void close() {
         for(Lot lot : lots) {
             String infor = lot.toString();
@@ -128,7 +127,7 @@ public class Auction
             System.out.println(infor);
         }
     }
-    
+
     public ArrayList<Lot> getUnsold(){
         ArrayList<Lot> uns = new ArrayList<Lot>();
         int coleccion = lots.size();
